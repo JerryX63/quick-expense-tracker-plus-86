@@ -3,9 +3,9 @@ import { format, parse, isToday, isThisWeek, isThisMonth, isThisYear, parseISO }
 import { Period } from '@/types/expense';
 
 export const formatCurrency = (amount: number): string => {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('en-PK', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'PKR',
     minimumFractionDigits: 2
   }).format(amount);
 };

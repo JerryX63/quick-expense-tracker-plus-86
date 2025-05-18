@@ -8,11 +8,13 @@ import { addQuickAddButton } from "@/utils/storage";
 import { QuickAddButton, Category } from "@/types/expense";
 import { generateId } from "@/utils/dateUtils";
 import { useToast } from "@/components/ui/use-toast";
+
 interface QuickAddFormProps {
   categories: Category[];
   onSuccess: () => void;
   onCancel: () => void;
 }
+
 const QuickAddForm = ({
   categories,
   onSuccess,
@@ -24,6 +26,7 @@ const QuickAddForm = ({
   const {
     toast
   } = useToast();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !amount || !categoryId) {
@@ -47,6 +50,7 @@ const QuickAddForm = ({
     });
     onSuccess();
   };
+
   return <div className="w-full p-4 bg-white rounded-lg animate-fadeIn">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Create Quick Add</h2>
@@ -62,7 +66,7 @@ const QuickAddForm = ({
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="amount">Amount (Rs)</Label>
+          <Label htmlFor="amount">Amount (PKR)</Label>
           <Input id="amount" type="number" step="0.01" placeholder="0.00" value={amount} onChange={e => setAmount(e.target.value)} required />
         </div>
         
@@ -93,4 +97,5 @@ const QuickAddForm = ({
       </form>
     </div>;
 };
+
 export default QuickAddForm;

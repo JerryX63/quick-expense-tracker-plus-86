@@ -12,11 +12,13 @@ import { addExpense } from "@/utils/storage";
 import { Expense, Category } from "@/types/expense";
 import { generateId } from "@/utils/dateUtils";
 import { useToast } from "@/components/ui/use-toast";
+
 interface ExpenseFormProps {
   categories: Category[];
   onSuccess: () => void;
   onCancel: () => void;
 }
+
 const ExpenseForm = ({
   categories,
   onSuccess,
@@ -30,6 +32,7 @@ const ExpenseForm = ({
   const {
     toast
   } = useToast();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!amount || !categoryId) {
@@ -63,6 +66,7 @@ const ExpenseForm = ({
     });
     onSuccess();
   };
+
   return <div className="w-full p-4 bg-white rounded-lg animate-fadeIn">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Add Expense</h2>
@@ -73,7 +77,7 @@ const ExpenseForm = ({
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="amount">Amount (Rs)</Label>
+          <Label htmlFor="amount">Amount (PKR)</Label>
           <Input id="amount" type="number" step="0.01" placeholder="0.00" className="text-lg" value={amount} onChange={e => setAmount(e.target.value)} required />
         </div>
         
@@ -134,4 +138,5 @@ const ExpenseForm = ({
       </form>
     </div>;
 };
+
 export default ExpenseForm;
