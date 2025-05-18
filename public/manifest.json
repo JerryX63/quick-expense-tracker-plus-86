@@ -1,0 +1,17 @@
+
+{
+  "name": "ExpenseTracker",
+  "short_name": "ExpenseTracker",
+  "description": "Track and manage your expenses easily",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00dac0",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
